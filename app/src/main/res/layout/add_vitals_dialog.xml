@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="myViewModel"
+            type="com.myexample.vitaltrack.VitalViewModel" />
+    </data>
+<androidx.cardview.widget.CardView
+    android:layout_width="310dp"
+    android:layout_height="410dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Add Vitals"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/sysBpEt"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:hint="Sys Bp"
+                android:layout_weight="1"
+                android:text="@={myViewModel.inputSysBp}"/>
+
+            <EditText
+                android:id="@+id/diaBpEt"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:hint="Dia Bp"
+                android:layout_weight="1"
+                android:text="@={myViewModel.inputDiaBp}"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/weightEt"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight (in Kg)"
+            android:layout_marginTop="15dp"
+            android:text="@={myViewModel.inputWeight}"/>
+
+        <EditText
+            android:id="@+id/bloodSugarEt"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Blood Sugar"
+            android:layout_marginTop="17dp"
+            android:text="@={myViewModel.inputKicks}"/>
+
+        <EditText
+            android:id="@+id/heartRateEt"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Heart Rate"
+            android:layout_marginTop="17dp"
+            android:text="@={myViewModel.inputHeartRate}"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/submitBtn"
+            android:layout_width="185dp"
+            android:layout_height="39dp"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_add_vitals_btn"
+            android:onClick="@{()->myViewModel.insertVital()}"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</layout>
