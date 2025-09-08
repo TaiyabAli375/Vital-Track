@@ -67,4 +67,7 @@ dependencies {
     // Coroutines (compatible with Kotlin 1.9.x)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    val work_version = "2.3.4"
+    implementation("androidx.work:work-runtime-ktx:$work_version")
 }

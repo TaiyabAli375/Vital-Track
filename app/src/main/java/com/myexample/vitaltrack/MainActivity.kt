@@ -5,21 +5,20 @@ import DB.VitalRepository
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.myexample.vitaltrack.R
+import androidx.work.ExistingPeriodicWorkPolicy
+
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.myexample.vitaltrack.databinding.AddVitalsDialogBinding
 import com.myexample.vitaltrack.databinding.ActivityMainBinding
-import java.util.Date
-import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         initVitalsRc()
         addfabClicked()
-
+        setPeriodicWorkRequest()
     }
 
     fun initVitalsRc(){
@@ -72,4 +71,14 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun setPeriodicWorkRequest(){
+        val periodicWorkRequest = PeriodicWorkRequest
+            .Builder(RemindingWorker::class.java,24,TimeUnit.HOURS)
+            .build()
+        WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
+            "reminder_work",
+            ExistingPeriodicWorkPolicy.KEEP,
+            periodicWorkRequest
+        )
+    }
 }

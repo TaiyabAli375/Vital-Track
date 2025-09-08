@@ -2,14 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     android:id="@+id/vital_row_cv"
     android:layout_width="match_parent"
     android:layout_height="160dp"
     android:layout_marginHorizontal="12dp"
     android:layout_marginVertical="7.5dp"
     app:cardCornerRadius="6dp"
-    app:cardElevation="10dp">
+    app:cardElevation="10dp"
+    app:strokeColor="@color/colorPrimary"
+    app:strokeWidth=".8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -150,5 +152,5 @@
                 android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
     </layout>
