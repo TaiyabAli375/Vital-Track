@@ -1,3 +1,3 @@
-<img src="Vitaldialogbox.jpg" width=200>
-<img src="vitalslist.jpg" width=200>
+<img src="Vitaldialogbox.jpg" width=150>
+<img src="vitalslist.jpg" width=150>
 
